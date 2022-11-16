@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'shortener',
+    'linkshortener',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +75,14 @@ WSGI_APPLICATION = 'shortener.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'link_shortener',
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': 'Abc1011498123abc'
     }
 }
 
