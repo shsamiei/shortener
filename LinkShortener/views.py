@@ -1,3 +1,15 @@
 from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .models import Shortener
 
-# Create your views here.
+
+class LinkShortenerViewSet(ModelViewSet):
+    queryset = Shortener.objects.all()
+    
+
+
+
+
+
+
+
