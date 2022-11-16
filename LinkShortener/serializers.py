@@ -3,7 +3,7 @@ from .models import Shortener
 
 
 
-class ShortenerSerializer(serializers.ModelSerializer):
+class LinkShortenerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shortener
         fields = ['url', 'shortener']
