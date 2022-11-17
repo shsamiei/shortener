@@ -17,7 +17,7 @@ class ShortenerService:
     @classmethod
     def long_to_short_url(cls, url):
         base = 0 
-        url_base64 = cls._int2base(cls.sum_of_ord(url=url))
+        url_base64 = cls._int2base(cls.sum_of_ord(url))
         if Shortener.objects.filter(shortener=url_base64, url=url).exists():
             return Shortener.objects.filter(shortener=url_base64, url=url).first().shortener
 
@@ -28,8 +28,6 @@ class ShortenerService:
             url_base64 = cls._int2base(cls.sum_of_ord(url=url, base=base))
             has_collision = Shortener.objects.filter(shortener=url_base64).exists()
 
-
-        Shortener.objects.create(url=url, shortener=url_base64)
         return url_base64
 
 
