@@ -4,6 +4,7 @@ from .services import ShortenerService
 
 class LinkShortenerSerializer(serializers.ModelSerializer):
 
+    shortener = serializers.CharField(max_length=255, read_only=True)
     def create(self, validated_data):
         url = validated_data['url']
         new_link = ShortenerService()
