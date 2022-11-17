@@ -16,3 +16,4 @@ class LinkShortenerSerializer(serializers.ModelSerializer):
         model = Shortener
         fields = ['url', 'shortener']
 
+
