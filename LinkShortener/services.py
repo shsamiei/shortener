@@ -38,6 +38,7 @@ class ShortenerService:
         obj = Shortener.objects.filter(shortener=shortener_link)
 
         if obj.exists():
+            obj.first().clicks_increament()
             return obj.first().url
         return None
 

@@ -3,10 +3,8 @@ from . import models
 
 
 
-
-
 @admin.register(models.Shortener)
 class ShortenerAdmin(admin.ModelAdmin):
-    list_display = ['url', 'shortener']
+    list_display = ['url', 'shortener', 'clicks']
 
     
