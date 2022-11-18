@@ -8,7 +8,7 @@ class LinkShortenerSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         url = validated_data['url']
         new_link = ShortenerService()
-        shortener = new_link.long_to_short_url(url)
+        shortener =  'http://127.0.0.1:8000/'  + new_link.long_to_short_url(url)
         return Shortener.objects.create(url=url, shortener=shortener)
 
         

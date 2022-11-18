@@ -6,8 +6,8 @@ from . import views
 
 
 urlpatterns = [
-
-    path('', views.LinkShortenerAPIView.as_view())
+    path('<str:shortener>', views.ShortenerRedirectView.as_view()),
+    path('link/', views.LinkShortenerAPIView.as_view())
 
 ]
 

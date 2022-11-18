@@ -1,11 +1,8 @@
-from django.shortcuts import render
-from rest_framework.viewsets import ModelViewSet
 from .models import Shortener
 from .serializers import LinkShortenerSerializer
 from rest_framework.generics import ListCreateAPIView
-from rest_framework.response import Response 
-from rest_framework.decorators import action
-
+from django.views import generic
+from .services import ShortenerService
 
 
 class LinkShortenerAPIView(ListCreateAPIView):
@@ -13,4 +10,9 @@ class LinkShortenerAPIView(ListCreateAPIView):
     serializer_class = LinkShortenerSerializer
 
 
+class ShortenerRedirectView(generic.RedirectView):
 
+    def get_redirect_url(self, *args, **kwargs):
+        service = ShortenerService()
+        return service.get_url(kwargs.get('shortener', ''))
+        
