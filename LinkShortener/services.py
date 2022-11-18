@@ -33,7 +33,10 @@ class ShortenerService:
 
     @classmethod
     def get_url(cls, shortener_url):
-        obj = Shortener.objects.filter(shortener=shortener_url)
+
+        shortener_link = 'http://127.0.0.1:8000/'+ shortener_url
+        obj = Shortener.objects.filter(shortener=shortener_link)
+
         if obj.exists():
             return obj.first().url
         return None

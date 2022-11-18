@@ -11,8 +11,6 @@ class LinkShortenerAPIView(ListCreateAPIView):
 
 
 class ShortenerRedirectView(generic.RedirectView):
-
     def get_redirect_url(self, *args, **kwargs):
         service = ShortenerService()
         return service.get_url(kwargs.get('shortener', ''))
-        
