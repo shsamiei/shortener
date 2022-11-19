@@ -1,6 +1,10 @@
 import string
 from .models import Shortener
 
+
+#TODO : make it singlton class 
+
+
 class ShortenerService:
 
     prime_numbers = [65423, 66721, 73517, 78697, 86249, 95923, 50591, 20663, 22739, 101141]
