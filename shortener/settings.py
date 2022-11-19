@@ -53,6 +53,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shortener.wsgi.application'
 
+# it is my local sql database, you should customize it for your local db
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
