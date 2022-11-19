@@ -2,7 +2,7 @@ import string
 from .models import Shortener
 from .singleton import singleton
 
-#TODO : make it singlton class 
+
 
 @singleton
 class ShortenerService:
