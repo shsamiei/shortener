@@ -20,5 +20,8 @@ short URL (easy peasy), by the way there is also counter which count how many ti
 `and also you can see the number of clicks` http://127.0.0.1:8000/link/<br/>
 
 #### (WATCHOUT) you have to set database first!
+ 
+`before run : python manage.py runserver` first : `pipenv install` and then `pipenv shell`
+
 
 
