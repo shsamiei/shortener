@@ -16,4 +16,5 @@ short URL (easy peasy), by the way there is also counter which count how many ti
 
 ### API endpoint 
 
-`Post URL and get the shorter link :`  http://127.0.0.1:8000/link/
+`Post URL and get the shorter link :`  http://127.0.0.1:8000/link/ <br/>
+`and also you can see the number of clicks` http://127.0.0.1:8000/link/
