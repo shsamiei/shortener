@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+
+  web:
+    volumes:
+      - ./:/app/
+    build: .
+    command: sh ./docker-entrypoint.sh
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+    
+
+volumes:
+  postgres_data:
+
+  

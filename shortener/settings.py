@@ -1,15 +1,15 @@
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-xzo7ib6z0w#-yo9%$u)e!m(+p)u#!sbz!uj4u+32%yftnyo0e+'
-
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
 
 
 INSTALLED_APPS = [
@@ -53,16 +53,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shortener.wsgi.application'
 
-# it is my local sql database, you should customize it for your local db
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'link_shortener',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': 'Abc1011498123abc'
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB'),
+        'HOST': 'db',
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD')
     }
 }
+
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -93,3 +94,5 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MY_DOMAIN_PREFIX = 'http://127.0.0.1:8000/'

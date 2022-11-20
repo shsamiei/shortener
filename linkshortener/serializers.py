@@ -1,21 +1,25 @@
 from rest_framework import serializers                                                                                                                                                                                                                                                                                                          
 from .models import Shortener
-from .services import ShortenerService
+from django.conf import settings
 
-MY_DOMAIN_PREFIX = 'http://127.0.0.1:8000/'
+
 
 class LinkShortenerSerializer(serializers.ModelSerializer):
 
-    shortener = serializers.CharField(max_length=255, read_only=True)
-    clicks = serializers.IntegerField(read_only=True)
+    shortener_url = serializers.SerializerMethodField()
+
+    def get_shortener_url(self, shortener: Shortener):
+        return settings.MY_DOMAIN_PREFIX + shortener.shortener
+
+
+    def validate(self, attrs):
+        return attrs
 
     def create(self, validated_data):
-        url = validated_data['url']
-        new_link = ShortenerService()
-        shortener = MY_DOMAIN_PREFIX + new_link.long_to_short_url(url)
-        return Shortener.objects.create(url=url, shortener=shortener)
+        validated_data['shortener'] = self.context['shortener']
+        return super().create(validated_data)
 
-        
     class Meta:
         model = Shortener
-        fields = ['url', 'shortener', 'clicks']
+        fields = ['url', 'shortener', 'shortener_url', 'clicks']
+        read_only_fields = ['shortener', 'clicks']
