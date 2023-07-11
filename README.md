@@ -24,4 +24,4 @@ short URL (easy peasy), by the way there is also counter which count how many ti
 `before run : python manage.py runserver` first : `pipenv install` and then `pipenv shell`
 
 
-
+https://drive.google.com/drive/folders/1seDc1el1lNULsfmIRt21aLxqCcUrvUMb?usp=sharing
